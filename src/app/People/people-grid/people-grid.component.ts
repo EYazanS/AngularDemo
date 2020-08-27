@@ -20,5 +20,6 @@ export class PeopleGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.people = this.store.select(fromStore.getAllPeople);
+    this.store.dispatch(new fromStore.LoadPeople());
   }
 }
