@@ -5,11 +5,13 @@ import { PeopleModule } from './People/people.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PeopleDetailsComponent } from './People/people-details/people-details.component';
+import { AuthGuardService } from './auth/guards.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'people',
+    canActivate: [AuthGuardService] ,
     children: [
       { path: '', component: PeopleGridComponent },
       { path: 'add', component: PeopleFormComponent },

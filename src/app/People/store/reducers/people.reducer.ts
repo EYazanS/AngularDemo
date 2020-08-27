@@ -22,7 +22,7 @@ export function reducer(state: State = initialState, action: PeopleActions.Peopl
             return { ...state, loading: false, loaded: false };
 
         case PeopleActions.loadPeopleSuccess:
-            return { ...state, loading: false, loaded: true };
+            return { data: action.payload, loading: false, loaded: true };
 
         default:
             break;

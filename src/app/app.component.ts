@@ -1,3 +1,4 @@
+import { AuthService } from './auth/login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularDemo';
+
+  /**
+   *
+   */
+
+  isAuth = false;
+
+  constructor(private authService: AuthService) {
+    this.authService.isAuth.subscribe(result => this.isAuth = result);
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
 }

@@ -1,6 +1,8 @@
-import { LoginService } from './../login.service';
+import { AuthService } from './../login.service';
 import { AuthModel } from './Models/AuthModel';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private service: LoginService) { }
+  constructor(private service: AuthService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,8 +25,9 @@ export class LoginComponent implements OnInit {
     this.service
       .login(this.model)
       .subscribe(token => {
-        console.log('token ', token);
         localStorage.setItem('token', token);
+        this.router.navigate(['people']);
+        this.service.setAuthState(true);
       });
   }
 

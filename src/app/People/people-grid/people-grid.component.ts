@@ -13,6 +13,7 @@ import { Observable, of } from 'rxjs';
 export class PeopleGridComponent implements OnInit {
 
   people: Observable<Person[]>;
+  displayedColumns: string[] = ['fullName', 'dateOfBirth', 'actions'];
 
   constructor(private store: Store<fromStore.PeopleStoreState>) { }
 

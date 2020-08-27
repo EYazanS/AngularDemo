@@ -1,3 +1,4 @@
+import { AuthGuardService } from './auth/guards.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AuthModule } from './auth/auth.module';
 import { PeopleModule } from './People/people.module';
@@ -24,11 +25,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     EffectsModule.forRoot([]),
     BrowserAnimationsModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

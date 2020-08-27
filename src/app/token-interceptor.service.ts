@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class TokenInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // All HTTP requests are going to go through this method
-    if (req.body) {
+    if (req) {
       const duplicate = req.clone({
         setHeaders: {
           Authorization: `Bearer ${localStorage.getItem('token')}`

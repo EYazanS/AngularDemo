@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     MatInputModule
   ],
-  providers: []
+  providers: [
+    JwtHelperService
+  ]
 })
 export class AuthModule { }
