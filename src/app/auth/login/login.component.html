@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        Person
+    </mat-card-header>
+    <mat-card-content>
+        <form id="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" onSu>
+                <mat-label>Username</mat-label>
+                <input matInput id="username" required [(ngModel)]="model.username" name="username">
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput id="password" type="password" required [(ngModel)]="model.password" name="password">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button form="form">
+            Save
+        </button>
+    </mat-card-actions>
+</mat-card>

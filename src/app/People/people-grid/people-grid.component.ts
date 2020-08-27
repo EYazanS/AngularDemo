@@ -14,9 +14,7 @@ export class PeopleGridComponent implements OnInit {
 
   people: Observable<Person[]>;
 
-  constructor(private store: Store<fromStore.PeopleStoreState>) {
-
-  }
+  constructor(private store: Store<fromStore.PeopleStoreState>) { }
 
   ngOnInit(): void {
     this.people = this.store.select(fromStore.getAllPeople);

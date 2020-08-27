@@ -6,9 +6,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
+import { PeopleGridComponent } from './people-grid/people-grid.component';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { PeopleFormComponent } from './people-form/people-form.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PeopleGridComponent,
+    PeopleDetailsComponent,
+    PeopleFormComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/login/login.component';
 import { PeopleFormComponent } from './People/people-form/people-form.component';
 import { PeopleGridComponent } from './People/people-grid/people-grid.component';
 import { PeopleModule } from './People/people.module';
@@ -6,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PeopleDetailsComponent } from './People/people-details/people-details.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   {
     path: 'people',
     children: [
