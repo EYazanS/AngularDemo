@@ -1,3 +1,4 @@
+import { PeopleModule } from './People/people.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
@@ -19,7 +20,8 @@ import { PeopleFormComponent } from './People/people-form/people-form.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    PeopleModule,
+    StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([])
   ],
   providers: [],

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../store';
 import { Person } from '../Models/PersonResource';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-people-grid',
@@ -11,14 +12,13 @@ import { Person } from '../Models/PersonResource';
 })
 export class PeopleGridComponent implements OnInit {
 
-  people: Person[] = [];
+  people: Observable<Person[]>;
 
-  constructor(private store: Store) {
+  constructor(private store: Store<fromStore.PeopleStoreState>) {
 
   }
 
   ngOnInit(): void {
-
+    this.people = this.store.select(fromStore.getAllPeople);
   }
-
 }

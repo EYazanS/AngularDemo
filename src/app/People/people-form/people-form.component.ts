@@ -1,3 +1,4 @@
+import { Person } from './../Models/PersonResource';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-form.component.css']
 })
 export class PeopleFormComponent implements OnInit {
+
+  person: Person = {
+    dateOfBirth: null,
+    fullName: null,
+    id: null
+  };
 
   constructor() { }
 

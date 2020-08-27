@@ -1,1 +1,30 @@
 <p>people-grid works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Full name
+            </th>
+            <th>
+                Date of birth
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of people | async">
+            <th>
+                {{ person.fullName }}
+            </th>
+            <th>
+                {{ person.dateOfBirth | date }}
+            </th>
+            <th>
+                {{ person.id }}
+            </th>
+        </tr>
+    </tbody>
+</table>

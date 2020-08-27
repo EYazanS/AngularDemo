@@ -8,7 +8,7 @@ export interface State {
 }
 
 export const initialState: State = {
-    data: [{ fullName: 'Test', dateOfBirth: new Date('13/8/1996') }],
+    data: [{ fullName: 'Test', dateOfBirth: new Date('08/13/1996'), id: '123' }],
     loaded: false,
     loading: false,
 };
@@ -17,17 +17,20 @@ export function reducer(state: State = initialState, action: PeopleActions.Peopl
     switch (action.type) {
         case PeopleActions.loadPeople:
             return { ...state, loading: true };
-            break;
 
         case PeopleActions.loadPeopleFail:
             return { ...state, loading: false, loaded: false };
-            break;
 
         case PeopleActions.loadPeopleSuccess:
             return { ...state, loading: false, loaded: true };
-            break;
 
         default:
             break;
     }
+
+    return state;
 }
+
+export const getPeopleLoading = (state: State) => state.loading;
+export const getPeopleLoaded = (state: State) => state.loaded;
+export const getPeople = (state: State) => state.data;
