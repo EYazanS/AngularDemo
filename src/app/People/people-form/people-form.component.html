@@ -1,1 +1,51 @@
-<p>people-form works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <h2>
+            Person
+        </h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form id="form" #form="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" onSu>
+                <mat-label>Full name</mat-label>
+                <input matInput id="fullName" #name="ngModel" minlength="3" required [(ngModel)]="model.fullName"
+                    name="username">
+                <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.minlength">
+                    Name must be at least 3 characters long.
+                </mat-error>
+                <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required">
+                    Name is required.
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Birth date</mat-label>
+                <input matInput id="dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" required
+                    [(ngModel)]="model.dateOfBirth" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                    *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched) && dateOfBirth.errors.required">
+                    Birthdate is required.
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-list *ngIf="errors.length > 0" style="padding: 5px">
+            <mat-list-item *ngFor="let error of errors">
+                <span style="color: red !important;">
+                    {{ error }}
+                </span>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-footer>
+    <mat-card-actions>
+        <button mat-raised-button [disabled]="!form.form.valid" color="primary" form="form">
+            {{ isUpdate ? 'Update' : 'Add' }}
+        </button>
+        <a mat-button [routerLink]="['/people']">
+            Back
+        </a>
+    </mat-card-actions>
+</mat-card>
